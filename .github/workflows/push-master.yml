@@ -12,6 +12,7 @@ jobs:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
       - run: |
-          npm ci
-          npm run build
-          npm run deploy -- --token "${{ secrets.FIREBASE_TOKEN }}"
+          npm i -g yarn
+          yarn
+          yarn generate
+          yarn deploy --token "${{ secrets.FIREBASE_TOKEN }}"
