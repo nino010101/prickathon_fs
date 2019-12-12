@@ -16,6 +16,10 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
+  /* env */
+  env: {
+    FIREBASE_CONFIG: process.env.FIREBASE_CONFIG
+  },
   /*
    ** Customize the progress-bar color
    */
