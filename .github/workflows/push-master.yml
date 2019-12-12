@@ -7,7 +7,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      FIREBASE_CONFIG: "${{ secrets.FIREBASE_CONFIG }}"
+      FIREBASE_CONFIG: ${{ secrets.FIREBASE_CONFIG }}
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
