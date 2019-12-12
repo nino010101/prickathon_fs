@@ -2,7 +2,8 @@
  * firebase initialize plugin
  */
 import Vue from 'vue'
-import * as firebase from 'firebase'
+import firebase from 'firebase/app'
+import 'firebase/firestore'
 
 const FIREBASE_CONFIG = process.env.FIREBASE_CONFIG
 const firebaseConfig = JSON.parse(FIREBASE_CONFIG)
