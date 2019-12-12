@@ -68,7 +68,6 @@ export default {
       this.msgNum += 1
       if (this.msgNum === 3) this.msgNum = 0
       this.daiaMsg = msgList[this.msgNum]
-      console.log(this.daiaMsg)
     }, 10000)
     this.ref
       .collection('shards')
@@ -87,7 +86,6 @@ export default {
       this.myCounter += 1
     },
     incrementCounter(db, ref, num) {
-      console.log('increment!!')
       // Select a shard of the counter at random
       const shardId = Math.floor(Math.random() * num).toString()
       const shardRef = ref.collection('shards').doc(shardId)
@@ -108,7 +106,6 @@ export default {
           })
           return total
         })
-      console.log(result)
       this.counter = result
     }
   }
