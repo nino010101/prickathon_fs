@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nuxt class="full-height-view" />
+    <nuxt />
   </div>
 </template>
 <style>
