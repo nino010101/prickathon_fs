@@ -14,7 +14,11 @@
         <!-- キラッとボタン -->
         <div @click="addCount" class="kira-button">
           <img class="kira-image" src="~/assets/kira.png" />
-          <BtnOverlay v-if="onCountFlg" />
+          <BtnOverlay
+            v-if="onCountFlg"
+            @iineDone="onCountFlg = false"
+            class="kira-ovl"
+          />
         </div>
         <div class="count-area">
           <p class="myCount">{{ myCounter }}回応援したよ！</p>
@@ -83,9 +87,14 @@ export default {
   },
   methods: {
     addCount() {
+      if (this.onCountFlg) {
+        this.onCountFlg = false
+      }
       this.incrementCounter(this.db, this.ref, 10)
       this.myCounter += 1
-      this.onCountFlg = true
+      this.$nextTick(() => {
+        this.onCountFlg = true
+      })
     },
     incrementCounter(db, ref, num) {
       // Select a shard of the counter at random
@@ -145,9 +154,18 @@ export default {
     margin-top: 16px;
     width: 100vw;
     .kira-image {
-      width: 100%;
+      z-index: 60;
+      width: 90vw;
       max-width: 500px;
-      height: 100vw;
+      height: 90vw;
+      max-height: 500px;
+    }
+    .kira-ovl {
+      z-index: 55;
+      position: absolute;
+      width: 90vw;
+      max-width: 500px;
+      height: 90vw;
       max-height: 500px;
     }
   }

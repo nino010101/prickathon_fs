@@ -9,13 +9,13 @@ export default {
       targets: ['.kira-overlay'],
       easing: 'easeOutQuint',
       autoplay: true,
-      duration: 2000, // 1.2s
+      duration: 1000, // 1.2s
       opacity: 0,
-      scale: 2
+      scale: 1.1
     })
     setInterval(() => {
       this.$emit('iineDone')
-    }, 2000)
+    }, 1000)
   }
 }
 </script>
