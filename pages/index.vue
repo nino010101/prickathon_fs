@@ -262,7 +262,7 @@ export default {
       justify-content: center;
       align-items: center;
       p {
-        font-size: 2rem;
+        font-size: 1.8rem;
         font-weight: bold;
         color: #333;
         text-align: center;
