@@ -17,7 +17,9 @@
           <p class="myCount">{{ myCounter }}回応援したよ！</p>
           <p class="allCount">全部で{{ counter }}回応援されてるよ！</p>
         </div>
-
+        <div class="twit-button-area">
+          <TwitterShare :myCount="myCounter" :totalCount="counter" />
+        </div>
         <div class="msg-area">
           <div class="msg-text">
             <p>{{ daiaMsg }}</p>
@@ -42,6 +44,7 @@
 
 <script>
 // import anime from 'animejs/lib/anime.es'
+import TwitterShare from '~/components/TwitterShare'
 /* eslint-disable no-console */
 const msgList = [
   'ボタンを押して応援するんだもん！',
@@ -49,6 +52,9 @@ const msgList = [
   'せりふさんぷるその３その３その３'
 ]
 export default {
+  components: {
+    TwitterShare
+  },
   data() {
     return {
       myCounter: 0,
@@ -158,6 +164,13 @@ export default {
       font-weight: bold;
       font-size: 1.2rem;
     }
+  }
+
+  .twit-button-area {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    margin: 16px 0px;
   }
 
   .msg-area {
