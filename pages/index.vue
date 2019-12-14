@@ -184,11 +184,13 @@ export default {
       width: 250px;
       .kira-image {
         z-index: 60;
-        width: 100%;
+        width: 250px;
+        height: 250px;
       }
       .kira-ovl {
         z-index: 50;
         width: 250px;
+        height: 250px;
         position: absolute;
       }
     }
