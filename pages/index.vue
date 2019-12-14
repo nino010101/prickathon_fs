@@ -10,7 +10,7 @@
         </div>
         <div class="center-content">
           <!-- キラッとボタン -->
-          <div @click="addCount" class="kira-button">
+          <div @click.prevent="addCount" class="kira-button">
             <img class="kira-image" src="~/assets/kira.png" />
           </div>
           <div class="twit-button-area">
