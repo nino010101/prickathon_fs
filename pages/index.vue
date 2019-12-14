@@ -166,6 +166,20 @@ export default {
     }
   }
 
+  /*
+  @media (min-height: 640px) {
+    .footer {
+      height: calc(100vh - 472px);
+    }
+  }
+
+  @media (max-height: 639px) {
+    .footer {
+      height: calc(640px - 472px);
+    }
+  }
+  */
+
   .center-content {
     position: absolute;
     top: 0;
@@ -200,7 +214,7 @@ export default {
 
   .count-area {
     padding-top: 48px;
-    margin: 8px 32px 16px;
+    height: 172px;
     p {
       text-align: center;
       font-weight: bold;
