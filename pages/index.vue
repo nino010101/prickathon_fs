@@ -12,6 +12,11 @@
           <!-- キラッとボタン -->
           <div @click.prevent="addCount" class="kira-button">
             <img class="kira-image" src="~/assets/kira.png" />
+            <BtnOverlay
+              v-if="onCountFlg"
+              @iineDone="onCountFlg = false"
+              class="kira-ovl"
+            />
           </div>
           <div class="twit-button-area">
             <TwitterShare :myCount="myCounter" :totalCount="counter" />
@@ -49,14 +54,15 @@
 </template>
 
 <script>
-// import anime from 'animejs/lib/anime.es'
+import BtnOverlay from '~/components/BtnOverlay'
 import TwitterShare from '~/components/TwitterShare'
 import DaiaMsg from '~/components/DaiaMsg'
 /* eslint-disable no-console */
 export default {
   components: {
     TwitterShare,
-    DaiaMsg
+    DaiaMsg,
+    BtnOverlay
   },
   data() {
     return {
@@ -64,7 +70,8 @@ export default {
       counter: 0,
       db: null,
       ref: null,
-      isVertical: true
+      isVertical: true,
+      onCountFlg: false
     }
   },
   mounted() {
@@ -85,9 +92,14 @@ export default {
   },
   methods: {
     addCount() {
+      if (this.onCountFlg) {
+        this.onCountFlg = false
+      }
       this.incrementCounter(this.db, this.ref, 10)
       this.myCounter += 1
-      this.onCountFlg = true
+      this.$nextTick(() => {
+        this.onCountFlg = true
+      })
     },
     incrementCounter(db, ref, num) {
       // Select a shard of the counter at random
@@ -167,10 +179,17 @@ export default {
     margin: auto;
     z-index: 50;
     .kira-button {
+      display: flex;
       margin: auto;
       width: 250px;
       .kira-image {
+        z-index: 60;
         width: 100%;
+      }
+      .kira-ovl {
+        z-index: 50;
+        width: 250px;
+        position: absolute;
       }
     }
     .twit-button-area {
