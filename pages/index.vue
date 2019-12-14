@@ -8,19 +8,12 @@
           <p class="iine">いいね</p>
           <p class="myCount">{{ myCounter }}回応援したよ！</p>
         </div>
-<<<<<<< HEAD
-        <div class="center-content">
-          <!-- キラッとボタン -->
-          <div @click="addCount" class="kira-button">
-            <img class="kira-image" src="~/assets/kira.png" />
-=======
         <div class="twit-button-area">
           <TwitterShare :myCount="myCounter" :totalCount="counter" />
         </div>
         <div class="msg-area">
           <div class="msg-text">
             <DaiaMsg :myCount="myCounter" />
->>>>>>> upstream/master
           </div>
           <div class="twit-button-area">
             <TwitterShare :myCount="myCounter" :totalCount="counter" />
