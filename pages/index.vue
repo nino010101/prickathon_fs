@@ -154,8 +154,8 @@ export default {
       z-index: 50;
       text-align: center;
       font-weight: bold;
-      font-size: 24px;
-      line-height: 28px;
+      font-size: 2.4rem;
+      line-height: 2.8rem;
       .powerdby {
         color: white;
       }
@@ -199,24 +199,24 @@ export default {
   }
 
   .count-area {
-    padding-top: 60px;
+    padding-top: 48px;
     margin: 8px 32px 16px;
     p {
       text-align: center;
       font-weight: bold;
     }
     .allCount {
-      font-size: 72px;
-      line-height: 7.2rem;
-      color: white;
+      font-size: 6.4rem;
+      line-height: 6.4rem;
+      color: #fff;
     }
     .iine {
-      font-size: 20px;
-      color: white;
+      font-size: 2rem;
+      color: #fff;
     }
     .myCount {
       color: gray;
-      font-size: 20px;
+      font-size: 2rem;
     }
   }
 
@@ -248,7 +248,7 @@ export default {
       justify-content: center;
       align-items: center;
       p {
-        font-size: 20px;
+        font-size: 2rem;
         font-weight: bold;
         color: #333;
         text-align: center;

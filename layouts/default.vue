@@ -5,9 +5,10 @@
 </template>
 <style>
 html {
-  font-family: 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', Meiryo,
+  font-family: Roboto, 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', Meiryo,
     メイリオ, Osaka, 'MS PGothic', arial, helvetica, sans-serif;
   font-size: 62.5%;
+  font-style: normal;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
