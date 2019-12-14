@@ -66,7 +66,7 @@ export default {
   },
   data() {
     return {
-      myCounter: 0,
+      myCounter: 600,
       counter: 0,
       db: null,
       ref: null,
@@ -234,7 +234,7 @@ export default {
       position: absolute;
       z-index: 20;
       width: 250px;
-      left: 10px;
+      left: 30px;
       margin: auto;
       img {
         width: 100%;
@@ -243,10 +243,13 @@ export default {
     .msg-text {
       z-index: 30;
       position: absolute;
-      left: 20px;
-      top: 30px;
-      width: 230px;
+      left: 40px;
+      top: 10px;
+      width: 240px;
       height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       p {
         font-size: 20px;
         font-weight: bold;
