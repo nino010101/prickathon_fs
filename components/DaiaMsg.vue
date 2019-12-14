@@ -46,7 +46,7 @@ export default {
       if (val > 100) {
         this.msgList = msgList3
       }
-      if (val > 300) {
+      if (val > 500) {
         this.msgList = msgList4
       }
     }
