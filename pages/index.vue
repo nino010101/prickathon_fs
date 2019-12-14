@@ -152,9 +152,10 @@ export default {
     margin-top: 16px;
     width: 100vw;
     .kira-image {
-      max-width: 500px;
       width: 100%;
-      height: auto;
+      max-width: 500px;
+      height: 100vw;
+      max-height: 500px;
     }
   }
 
