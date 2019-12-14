@@ -24,7 +24,7 @@
         </div>
         <div class="msg-area">
           <div class="msg-text">
-            <p>{{ daiaMsg }}</p>
+            <p v-html="daiaMsg"></p>
           </div>
           <div class="msg-box">
             <img class="kira-image" src="~/assets/msgbox.png" />
@@ -49,9 +49,9 @@
 import TwitterShare from '~/components/TwitterShare'
 /* eslint-disable no-console */
 const msgList = [
-  'ボタンを押して応援するんだもん！',
-  'QRコードの前に止まらないでね！',
-  'みんなのライブ、楽しみなんだもん！'
+  'ボタンを押して<br>応援するんだもん！',
+  'QRコードの前に<br>立ち止まらないでね！',
+  'みんなのライブ、<br>楽しみなんだもん！'
 ]
 const msgSpeed = 4000
 export default {
@@ -218,6 +218,7 @@ export default {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        white-space: nowrap;
       }
     }
 
