@@ -21,7 +21,7 @@ const msgList3 = [
 const msgList4 = [
   '楽屋でみらいちゃんに<br>会ったんだもん！<br>いい匂いだったもん！',
   'み゛ら゛い゛<br> ち゛ゃ゛ん゛！',
-  'すりすりしたいんだもん！'
+  'う〜ん、触って<br>すりすりして<br>みたいんだもん！'
 ]
 const msgSpeed = 4000
 export default {
