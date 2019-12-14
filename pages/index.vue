@@ -24,7 +24,7 @@
         </div>
         <div class="msg-area">
           <div class="msg-text">
-            <p v-html="daiaMsg"></p>
+            <DaiaMsg :myCount="myCounter" />
           </div>
           <div class="msg-box">
             <img class="kira-image" src="~/assets/msgbox.png" />
@@ -47,37 +47,25 @@
 <script>
 // import anime from 'animejs/lib/anime.es'
 import TwitterShare from '~/components/TwitterShare'
+import DaiaMsg from '~/components/DaiaMsg'
 /* eslint-disable no-console */
-const msgList = [
-  'ボタンを押して<br>応援するんだもん！',
-  'QRコードの前に<br>立ち止まらないでね！',
-  'みんなのライブ、<br>楽しみなんだもん！'
-]
-const msgSpeed = 4000
 export default {
   components: {
-    TwitterShare
+    TwitterShare,
+    DaiaMsg
   },
   data() {
     return {
       myCounter: 0,
       counter: 0,
       db: null,
-      ref: null,
-      intervalID: null,
-      daiaMsg: msgList[0],
-      msgNum: 0
+      ref: null
     }
   },
   mounted() {
     this.db = this.$firebase.firestore()
     this.ref = this.db.collection('counter').doc('fscount')
     this.getCount(this.ref)
-    this.intervalID = window.setInterval(() => {
-      this.msgNum += 1
-      if (this.msgNum === 3) this.msgNum = 0
-      this.daiaMsg = msgList[this.msgNum]
-    }, msgSpeed)
     this.ref
       .collection('shards')
       .where('count', '>=', 1)
