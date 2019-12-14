@@ -162,13 +162,13 @@ export default {
     .myCount {
       text-align: center;
       font-weight: bold;
-      font-size: 2rem;
+      font-size: 2.8rem;
     }
     .allCount {
       margin-top: 4px;
       text-align: center;
       font-weight: bold;
-      font-size: 1.2rem;
+      font-size: 1.6rem;
     }
   }
 
@@ -189,7 +189,10 @@ export default {
       z-index: 20;
       position: absolute;
       width: 95vw;
-      left: 3%;
+      max-width: 375px;
+      left: 0;
+      right: 0;
+      margin: auto;
       img {
         width: 100%;
       }
@@ -198,22 +201,35 @@ export default {
       z-index: 30;
       position: absolute;
       width: 80vw;
-      font-size: 2rem;
-      left: 10%;
-      top: 9%;
+      height: calc(80vw * 8 / 15);
+      max-width: 340px;
+      max-height: 190px;
+      font-size: 2.8rem;
+      left: 0;
+      right: 0;
+      top: 0;
+      margin: auto;
       font-weight: bold;
       p {
         color: #333;
+        width: 100%;
         text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
       }
     }
 
     .msg-image {
-      right: -30%;
-      bottom: -22%;
+      left: 130px;
+      right: 0;
+      margin: auto;
+      top: 120px;
       z-index: 10;
       position: absolute;
       width: 100vw;
+      max-width: 400px;
       .daia {
         width: 100%;
       }

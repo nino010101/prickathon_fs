@@ -64,5 +64,7 @@ export default {
   padding: 8px;
   text-decoration: none;
   border-radius: 3px;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 </style>
