@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- SPで見た時 -->
-    <template v-if="$device.isMobile">
+    <template v-if="$device.isMobile && isVertical">
       <div class="main-container">
         <div class="count-area">
           <p class="allCount">{{ counter }}</p>
@@ -42,7 +42,7 @@
     <!-- PCで見た時 -->
     <template v-else>
       <div>
-        スマートフォンで見てね
+        スマートフォンを縦画面にして見てね
       </div>
     </template>
   </div>
@@ -63,7 +63,8 @@ export default {
       myCounter: 0,
       counter: 0,
       db: null,
-      ref: null
+      ref: null,
+      isVertical: true
     }
   },
   mounted() {
@@ -80,6 +81,7 @@ export default {
         })
         this.counter = total
       })
+    window.addEventListener('resize', this.handleResize)
   },
   methods: {
     addCount() {
@@ -108,6 +110,9 @@ export default {
           return total
         })
       this.counter = result
+    },
+    handleResize() {
+      this.isVertical = window.innerHeight > window.innerWidth
     }
   }
 }
