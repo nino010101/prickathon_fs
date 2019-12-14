@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- SPで見た時 -->
-    <template v-if="$device.isMobile">
+    <template v-if="$device.isMobile && isVertical">
       <div class="main-container">
         <div class="count-area">
           <p class="allCount">{{ counter }}</p>
@@ -10,7 +10,7 @@
         </div>
         <div class="center-content">
           <!-- キラッとボタン -->
-          <div @click="addCount" class="kira-button">
+          <div @click.prevent="addCount" class="kira-button">
             <img class="kira-image" src="~/assets/kira.png" />
           </div>
           <div class="twit-button-area">
@@ -42,7 +42,7 @@
     <!-- PCで見た時 -->
     <template v-else>
       <div>
-        スマートフォンで見てね
+        スマートフォンを縦画面にして見てね
       </div>
     </template>
   </div>
@@ -63,7 +63,8 @@ export default {
       myCounter: 0,
       counter: 0,
       db: null,
-      ref: null
+      ref: null,
+      isVertical: true
     }
   },
   mounted() {
@@ -80,6 +81,7 @@ export default {
         })
         this.counter = total
       })
+    window.addEventListener('resize', this.handleResize)
   },
   methods: {
     addCount() {
@@ -108,13 +110,18 @@ export default {
           return total
         })
       this.counter = result
+    },
+    handleResize() {
+      this.isVertical = window.innerHeight > window.innerWidth
     }
   }
 }
 </script>
 <style lang="scss" scoped>
 .main-container {
+  position: relative;
   width: 100%;
+  min-height: 640px;
   height: 100vh;
   background: linear-gradient(162.58deg, #ffb7b7 3.26%, #ffb9fc 96.63%);
   background-size: cover;
@@ -123,7 +130,7 @@ export default {
 
   .footer {
     position: absolute;
-    bottom: 0px;
+    bottom: 0;
     width: 100%;
     overflow: hidden;
     padding-bottom: 20px;
