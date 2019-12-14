@@ -18,9 +18,11 @@
               class="kira-ovl"
             />
           </div>
+          <!--
           <div class="twit-button-area">
             <TwitterShare :myCount="myCounter" :totalCount="counter" />
           </div>
+          -->
         </div>
         <!-- footer -->
         <div class="footer">
@@ -34,6 +36,9 @@
             <div class="msg-image">
               <img class="daia" src="~/assets/daia.png" />
             </div>
+          </div>
+          <div class="twit-button-area">
+            <TwitterShare :myCount="myCounter" :totalCount="counter" />
           </div>
           <p class="credit">
             <span class="powerdby">Powered by</span>
@@ -145,6 +150,13 @@ export default {
     width: 100%;
     overflow: hidden;
     padding-bottom: 20px;
+    .twit-button-area {
+      width: 100%;
+      position: absolute;
+      text-align: center;
+      bottom: 64px;
+      left: -72px;
+    }
     .credit {
       position: absolute;
       margin: auto;
