@@ -138,7 +138,8 @@ export default {
   height: 100vh;
   background: linear-gradient(162.58deg, #ffb7b7 3.26%, #ffb9fc 96.63%);
   background-size: cover;
-  font-family: Roboto;
+  font-family: Roboto, 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3',
+    Meiryo, メイリオ, Osaka, 'MS PGothic', arial, helvetica, sans-serif;
   font-style: normal;
 
   .footer {
