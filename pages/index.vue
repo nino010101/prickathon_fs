@@ -1,37 +1,41 @@
 <template>
-  <div class="full-height">
+  <div>
     <!-- SPで見た時 -->
     <template v-if="$device.isMobile">
       <div class="main-container">
-        <!-- header -->
-        <div class="header">
-          <div class="head-logo">
+        <div class="count-area">
+          <p class="allCount">{{ counter }}</p>
+          <p class="iine">いいね</p>
+          <p class="myCount">{{ myCounter }}回応援したよ！</p>
+        </div>
+        <div class="center-content">
+          <!-- キラッとボタン -->
+          <div @click="addCount" class="kira-button">
+            <img class="kira-image" src="~/assets/kira.png" />
+          </div>
+          <div class="twit-button-area">
+            <TwitterShare :myCount="myCounter" :totalCount="counter" />
+          </div>
+        </div>
+        <!-- footer -->
+        <div class="footer">
+          <div class="msg-area">
+            <div class="msg-text">
+              <p v-html="daiaMsg"></p>
+            </div>
+            <div class="msg-box">
+              <img class="kira-image" src="~/assets/msgbox.png" />
+            </div>
+            <div class="msg-image">
+              <img class="daia" src="~/assets/daia.png" />
+            </div>
+          </div>
+          <p class="credit">
+            <span class="powerdby">Powered by</span>
             <a href="https://prickathon.github.io/" target="_blank">
               <img class="logo-image" src="~/assets/plb.png" />
             </a>
-          </div>
-        </div>
-        <!-- キラッとボタン -->
-        <div @click="addCount" class="kira-button">
-          <img class="kira-image" src="~/assets/kira.png" />
-        </div>
-        <div class="count-area">
-          <p class="myCount">{{ myCounter }}回応援したよ！</p>
-          <p class="allCount">全部で{{ counter }}回応援されてるよ！</p>
-        </div>
-        <div class="twit-button-area">
-          <TwitterShare :myCount="myCounter" :totalCount="counter" />
-        </div>
-        <div class="msg-area">
-          <div class="msg-text">
-            <p v-html="daiaMsg"></p>
-          </div>
-          <div class="msg-box">
-            <img class="kira-image" src="~/assets/msgbox.png" />
-          </div>
-          <div class="msg-image">
-            <img class="daia" src="~/assets/daia.png" />
-          </div>
+          </p>
         </div>
       </div>
     </template>
@@ -123,77 +127,96 @@ export default {
 <style lang="scss" scoped>
 .main-container {
   width: 100%;
-  height: auto;
-  background-image: linear-gradient(
-    -225deg,
-    #e3fdf5 0%,
-    #ffe6fa 56%,
-    #ffbac3 100%
-  );
+  height: 100vh;
+  background: linear-gradient(162.58deg, #ffb7b7 3.26%, #ffb9fc 96.63%);
   background-size: cover;
+  font-family: Roboto;
+  font-style: normal;
 
-  .header {
-    background-color: #fff;
-    height: 36px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .head-logo {
-      height: 36px;
+  .footer {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 20px;
+    .credit {
+      position: absolute;
+      margin: auto;
+      bottom: 20px;
+      right: 0;
+      left: 0;
+      z-index: 50;
+      text-align: center;
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 28px;
+      .powerdby {
+        color: white;
+      }
       .logo-image {
-        height: 100%;
+        height: 40px;
+        vertical-align: text-bottom;
       }
     }
   }
 
-  .kira-button {
-    display: flex;
-    justify-content: center;
-    margin-top: 16px;
-    width: 100vw;
-    .kira-image {
-      width: 100%;
-      max-width: 500px;
-      height: 100vw;
-      max-height: 500px;
+  .center-content {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 300px;
+    height: 300px;
+    margin: auto;
+    z-index: 50;
+    .kira-button {
+      margin: auto;
+      width: 250px;
+      .kira-image {
+        width: 100%;
+      }
+    }
+    .twit-button-area {
+      margin-top: 10px;
+      text-align: right;
     }
   }
 
   .count-area {
+    padding-top: 60px;
     margin: 8px 32px 16px;
-    .myCount {
+    p {
       text-align: center;
       font-weight: bold;
-      font-size: 2.8rem;
     }
     .allCount {
-      margin-top: 4px;
-      text-align: center;
-      font-weight: bold;
-      font-size: 1.6rem;
+      font-size: 72px;
+      line-height: 55px;
+      color: white;
     }
-  }
-
-  .twit-button-area {
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    margin: 16px 0px;
+    .iine {
+      font-size: 20px;
+      color: white;
+    }
+    .myCount {
+      color: gray;
+      font-size: 20px;
+    }
   }
 
   .msg-area {
     position: relative;
-    overflow: hidden;
-    width: 100vw;
-    height: 50vh;
-    margin: auto;
+    height: 200px;
+    width: 300px;
+    left: 50%;
+    transform: translateX(-200px);
+    margin: auto 0;
     .msg-box {
-      z-index: 20;
       position: absolute;
-      width: 95vw;
-      max-width: 375px;
-      left: 0;
-      right: 0;
+      z-index: 20;
+      width: 250px;
+      left: 10px;
       margin: auto;
       img {
         width: 100%;
@@ -202,37 +225,25 @@ export default {
     .msg-text {
       z-index: 30;
       position: absolute;
-      width: 80vw;
-      height: calc(80vw * 8 / 15);
-      max-width: 340px;
-      max-height: 190px;
-      font-size: 2.8rem;
-      left: 0;
-      right: 0;
-      top: 0;
-      margin: auto;
-      font-weight: bold;
+      left: 20px;
+      top: 30px;
+      width: 230px;
+      height: 100px;
       p {
+        font-size: 20px;
+        font-weight: bold;
         color: #333;
-        width: 100%;
         text-align: center;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
         white-space: nowrap;
       }
     }
 
     .msg-image {
-      left: 130px;
-      right: 0;
-      margin: auto;
-      top: 120px;
-      z-index: 10;
       position: absolute;
-      width: 100vw;
-      max-width: 400px;
+      top: 20px;
+      left: 200px;
+      z-index: 10;
+      width: 320px;
       .daia {
         width: 100%;
       }
