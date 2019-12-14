@@ -6,7 +6,9 @@
         <!-- header -->
         <div class="header">
           <div class="head-logo">
-            <img class="logo-image" src="~/assets/plb.png" />
+            <a href="https://prickathon.github.io/" target="_blank">
+              <img class="logo-image" src="~/assets/plb.png" />
+            </a>
           </div>
         </div>
         <!-- キラッとボタン -->
@@ -49,8 +51,9 @@ import TwitterShare from '~/components/TwitterShare'
 const msgList = [
   'ボタンを押して応援するんだもん！',
   'QRコードの前に止まらないでね！',
-  'せりふさんぷるその３その３その３'
+  'みんなのライブ、楽しみなんだもん！'
 ]
+const msgSpeed = 4000
 export default {
   components: {
     TwitterShare
@@ -74,7 +77,7 @@ export default {
       this.msgNum += 1
       if (this.msgNum === 3) this.msgNum = 0
       this.daiaMsg = msgList[this.msgNum]
-    }, 10000)
+    }, msgSpeed)
     this.ref
       .collection('shards')
       .where('count', '>=', 1)
@@ -144,9 +147,12 @@ export default {
   }
 
   .kira-button {
+    display: flex;
+    justify-content: center;
     margin-top: 16px;
     width: 100vw;
     .kira-image {
+      max-width: 500px;
       width: 100%;
     }
   }
