@@ -114,7 +114,9 @@ export default {
 </script>
 <style lang="scss" scoped>
 .main-container {
+  position: relative;
   width: 100%;
+  min-height: 640px;
   height: 100vh;
   background: linear-gradient(162.58deg, #ffb7b7 3.26%, #ffb9fc 96.63%);
   background-size: cover;
@@ -123,7 +125,7 @@ export default {
 
   .footer {
     position: absolute;
-    bottom: 0px;
+    bottom: 0;
     width: 100%;
     overflow: hidden;
     padding-bottom: 20px;
