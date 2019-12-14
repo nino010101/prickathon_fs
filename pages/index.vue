@@ -29,7 +29,7 @@
               <DaiaMsg :myCount="myCounter" />
             </div>
             <div class="msg-box">
-              <img class="kira-image" src="~/assets/msgbox.png" />
+              <img class="box-image" src="~/assets/msgbox.png" />
             </div>
             <div class="msg-image">
               <img class="daia" src="~/assets/daia.png" />
@@ -66,7 +66,7 @@ export default {
   },
   data() {
     return {
-      myCounter: 600,
+      myCounter: 0,
       counter: 0,
       db: null,
       ref: null,
@@ -136,11 +136,8 @@ export default {
   width: 100%;
   min-height: 640px;
   height: 100vh;
-  background: linear-gradient(162.58deg, #ffb7b7 3.26%, #ffb9fc 96.63%);
+  background-image: linear-gradient(162deg, #ffb7b7 4%, #ffb9fc 96%);
   background-size: cover;
-  font-family: Roboto, 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3',
-    Meiryo, メイリオ, Osaka, 'MS PGothic', arial, helvetica, sans-serif;
-  font-style: normal;
 
   .footer {
     position: absolute;
@@ -210,7 +207,7 @@ export default {
     }
     .allCount {
       font-size: 72px;
-      line-height: 55px;
+      line-height: 7.2rem;
       color: white;
     }
     .iine {
