@@ -233,8 +233,8 @@ export default {
       font-weight: bold;
     }
     .allCount {
-      font-size: 6.4rem;
-      line-height: 6.4rem;
+      font-size: 4.6rem;
+      line-height: 4.6rem;
       color: #fff;
     }
     .iine {
