@@ -54,6 +54,7 @@
 import TwitterShare from '~/components/TwitterShare'
 import DaiaMsg from '~/components/DaiaMsg'
 import BtnOverlay from '~/components/BtnOverlay'
+const SHARD_NUM = 20
 /* eslint-disable no-console */
 export default {
   components: {
@@ -90,7 +91,7 @@ export default {
       if (this.onCountFlg) {
         this.onCountFlg = false
       }
-      this.incrementCounter(this.db, this.ref, 10)
+      this.incrementCounter(this.db, this.ref, SHARD_NUM)
       this.myCounter += 1
       this.$nextTick(() => {
         this.onCountFlg = true
